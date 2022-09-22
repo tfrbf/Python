@@ -1,38 +1,45 @@
 import random
 
+pc_dict=("rock", "paper", "siccor")
 
-def winner(p1,p2):
-    p1=int(0)
-    p2=int(0)
 
-    if p1=="rock" and p2=="paper":
-        p1+=1
-    elif p1=="rock" and p2=="siccor":
-        p1+=1
-    elif p1=="rock" and p2=="rock":
-        pass
-    elif p1=="paper" and p2=="rock":
-        p2+=1
-    elif p1=="paper" and p2=="siccor":
-        p2+=1
-    elif p1=="paper" and p2=="paper":
-        pass
-    elif p1=="siccor" and p2=="rock":
-        p2+=1
-    elif p1=="siccor" and p2=="paper":
-        p1+=1
-    elif p1=="siccor" and p2=="siccor":
-        pass
+def winner():
+    pc_point=0
+    user_point=0
 
-    print(p1,p2)
+    while pc_point<=2 and user_point<=2:
+
+        user_choice=input("rock, siccor, paper ?")
+        pc_choice=random.choice(pc_dict)
+
+        if pc_choice=="rock" and user_choice=="paper":
+            user_point+=1
+        elif pc_choice=="rock" and user_choice=="siccor":
+            pc_point+=1
+        elif pc_choice=="rock" and user_choice=="rock":
+            pass
+        elif pc_choice=="paper" and user_choice=="rock":
+            user_point+=1
+        elif pc_choice=="paper" and user_choice=="siccor":
+            user_point+=1
+        elif pc_choice=="paper" and user_choice=="paper":
+            pass
+        elif pc_choice=="siccor" and user_choice=="rock":
+            user_point+=1
+        elif pc_choice=="siccor" and user_choice=="paper":
+            pc_point+=1
+        elif pc_choice=="siccor" and user_choice=="siccor":
+            pass
+
+        print(f"you:{user_point} - pc:{pc_point}")
+    if pc_point>user_point:
+        print("pc wone!")
+    else:
+        print("you wone!")
+    return user_point,pc_point
     
 
+print("Resualt: ",winner())
 
-pc_choice=("rock", "paper", "siccor")
-user_choice=input("rock, siccor, paper ?")
-
-x1=random.choice(pc_choice)
-print("pc:",x1)
-winner(x1,user_choice)
 
  
