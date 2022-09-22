@@ -1,7 +1,16 @@
+from asyncore import loop
 import random
+from tkinter import *
 
-pc_dict=("rock", "paper", "siccor")
 
+window=Tk()
+window.title("ROCK - PAPER - SICCOR")
+window.minsize(250,250)
+window.geometry("400x400")
+
+
+
+'''pc_dict=("rock", "paper", "siccor")
 
 def winner():
     pc_point=0
@@ -41,5 +50,5 @@ def winner():
 
 print("Resualt: ",winner())
 
-
- 
+'''
+window.mainloop()
