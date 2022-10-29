@@ -18,6 +18,13 @@ def Encrypte():
             ordered_list.append(i)
             random.shuffle(ordered_list)
             key = ordered_list
+            
+        key_asc = []
+        for letter in key:
+            key_asc.append(chr(letter+95))
+        
+        key_asc = "".join(key_asc)
+        print(key_asc)
         
 
         shuffeled_word = []
@@ -32,15 +39,19 @@ def Encrypte():
         Encrypted_word = []
         asc_code = 0
         for i in range(0,len(shuffeled_word)):
-            asc_code = 122 - ord(shuffeled_word[i])
-            Encrypted_word.append(asc_code)
+            asc_code = 122 - (ord(shuffeled_word[i]) - 97)
+            Encrypted_word.append(chr(asc_code))
             
+        Encrypted_word = "".join(Encrypted_word)
         print(Encrypted_word)
+    
+        new_words.append(Encrypted_word)
+    
+    new_words = " ".join(new_words)
 
-        l = []
-        for i in range(0, len(Encrypted_word)):
-            l += str(chr(Encrypted_word[i]))
-        print(l)
+    print(new_words)
+
+        
             
 
 
@@ -49,7 +60,7 @@ def Encrypte():
 
 
 #Main
-mode = input("Encrypte or Decrypt \t")
+#mode = input("Encrypte or Decrypt \t")
 
-if mode == "1":
-    Encrypte()
+#if mode == "1":
+Encrypte()
